@@ -9,6 +9,17 @@ const usersRouter = require('./routes/users');
 
 const app = express();
 
+// Set up mongoose connection
+const mongoose = require("mongoose");
+mongoose.set("strictQuery", false);
+const mongoDB = "mongodb+srv://ramnan99:KtkqAawNzGz4w9Yw@cluster0.jospzmb.mongodb.net/inventory_application?retryWrites=true&w=majority&appName=Cluster0"
+
+main().catch((err) => console.log(error));
+
+async function main() {
+  await mongoose.connect(mongoDB);
+}
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
